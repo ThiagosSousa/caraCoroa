@@ -1,21 +1,32 @@
 document.getElementById('botaoJogar').onclick = () =>{
-    let valor = Math.random();
+    const jogadorCara = element("jogadorCara").value;
+    const jogadorCoroa = element("jogadorCoroa").value;
 
-    let imagem = '';
-
-    if (valor > 0.5) {
-        imagem = 'Coroa';
-    } else {
-        imagem = 'Cara';
+    if(jogadorCara == '' || jogadorCoroa == '') {
+        return alert('Digite os nomes!!');
     }
     
-    let caminhoImagem = `Assets/Images/${imagem}.png`;
-    document.getElementById('imagemMoeda').src = caminhoImagem;
-    console.log(valor)
+    const valor = Math.random();
 
+    let imagem = '';
+    let nomeVencedor = '';
+    
+    if (valor > 0.5) {
+        imagem = 'Coroa';
+        nomeVencedor = jogadorCoroa;
+    } else {
+        imagem = 'Cara';
+        nomeVencedor = jogadorCara;
+    }
+    
+    const caminhoImagem = `Assets/Images/${imagem}.png`;
+    element('imagemMoeda').src = caminhoImagem;
+    alert(nomeVencedor);
 };
 
-
+function element(id){
+    return document.getElementById(id);
+}
 
 
 
@@ -23,9 +34,9 @@ document.getElementById('botaoJogar').onclick = () =>{
 
 // let nomeAlunos = ["Lucas", "João", "Pedro", "Gustavo", "Natália"];
 
-// // for(let i = 0; i < nomeAlunos.length; i++) {
-// //     console.log('Nome do Aluno(a): ' + nomeAlunos[i]);
-// // }
+// for(let i = 0; i < nomeAlunos.length; i++) {
+//     console.log('Nome do Aluno(a): ' + nomeAlunos[i]);
+// }
 
 // let i = 0;
 // while(i < nomeAlunos.length) {
